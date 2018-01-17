@@ -15,7 +15,8 @@
 
   <div class="container">
     <h1>Registration page </h1>
-    <form>
+    <form method="post" action="/register/">
+      {% csrf_token %} <!-- this will explained later -->
       <div class="form-group">
         <label for="firstname">First name</label>
         <input type="text" class="form-control" id="firstname" placeholder="First Name">
@@ -39,10 +40,10 @@
 
       <div class="form-group">
         <label for="birthdate">Birth date</label>
-        <input type="Date" form-control" id="birthdate" placeholder="DateField">
+        <input type="Date" class="form-control"  id="birthdate " placeholder="DateField">
       </div>
 
-      <button type="submit" class="btn btn-primary">Register</button>
+      <button type="submit " class="btn btn-primary ">Register</button>
     </form>
 
   </div>
