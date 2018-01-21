@@ -1,31 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'user/base.html' %}
 
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'user/mystyle.css' %}">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-
-<body>
-  
-  <div class="container">
-      <h1> Player page </h1> 
-      <nav>
-          <ul>
-            <li> <a href="register"> Register</a></li>
-          </ul>
-        </nav>
+{% block content %} 
+{% if user.is_authenticated %}
+<p>
+    <p>Welcome {{user.get_username}}  <a href="logout/" class="btn btn-primary"> Logout </a> </p>
     
-  </div>
+  </p>
+{% else %}
+   <p>
+     <a href="login/" class="btn btn-primary"> Login </a>
+     <a href="signup/" class="btn btn-primary"> Sign Up </a>
+     <a href ="#" class="btn btn-primary"> Upload game </a>
+   </p>
+{% endif %}
+  
 
-</body>
-
-</html> 
-
+{% endblock %}
